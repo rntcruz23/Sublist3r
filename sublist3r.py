@@ -103,6 +103,7 @@ def parse_args():
     parser.add_argument('-e', '--engines', help='Specify a comma-separated list of search engines')
     parser.add_argument('-o', '--output', help='Save the results to text file')
     parser.add_argument('-n', '--no-color', help='Output without color', default=False, action='store_true')
+    parser.add_argument('-s', '--silent', help='Don\'t print output', default=False, action='store_true')
     return parser.parse_args()
 
 
@@ -999,8 +1000,10 @@ def interactive():
         verbose = True
     if args.no_color:
         no_color()
-    banner()
-    res = main(domain, threads, savefile, ports, silent=False, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
+    if not args.silent:
+        banner()
+        
+    res = main(domain, threads, savefile, ports, silent=args.silent, verbose=verbose, enable_bruteforce=enable_bruteforce, engines=engines)
 
 if __name__ == "__main__":
     interactive()

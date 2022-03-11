@@ -12,7 +12,7 @@ Sublist3r is a python tool designed to enumerate subdomains of websites using OS
 ## Installation
 
 ```
-git clone https://github.com/aboul3la/Sublist3r.git
+git clone https://github.com/rntcruz23/Sublist3r.git
 ```
 
 ## Recommended Python Version:
@@ -138,6 +138,9 @@ Short Form    | Long Form     | Description
 * To enumerate subdomains and use specific engines such Google, Yahoo and Virustotal engines
 
 ``python sublist3r.py -e google,yahoo,virustotal -d example.com``
+
+* To run sublist3r without any output, no color, and output to a file (to use with other tools):
+``python sublist3r.py -d example.com -s -n -o output.txt ``
 
 
 ## Using Sublist3r as a module in your python scripts
